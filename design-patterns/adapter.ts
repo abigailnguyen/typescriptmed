@@ -6,6 +6,8 @@ import { RecordHandler, loader } from "./loader";
 // Here EventType is just like T, a generic for EventType
 type Listener<EventType> = (ev: EventType) => void;
 
+// a closure function that manages an array of listeners to an event type
+// a listener is a function on an event type
 function createObserver<EventType>(): {
   subscribe: (listener: Listener<EventType>) => () => void;
   publish: (event: EventType) => void;
@@ -105,18 +107,30 @@ function createDatabase<T extends BaseRecord>() {
 const PokemonDB = createDatabase<Pokemon>();
 const pokemonDB = PokemonDB.instance;
 
-const unsubscribe = pokemonDB.onAfterAdd(({ value }) => {
+const afterListener: Listener<AfterSetEvent<Pokemon>> = ({ value }) => {
   console.log(value);
-});
+};
+
+const beforeListener: Listener<BeforeSetEvent<Pokemon>> = ({
+  value,
+  newValue,
+}) => {
+  console.log(`Before value: ${value}. After value ${newValue}`);
+};
+const unsubscribeBefore = pokemonDB.onBeforeAdd(beforeListener);
+const unsubscribeAfter = pokemonDB.onAfterAdd(afterListener);
 
 class PokemonDBAdapter implements RecordHandler<Pokemon> {
   addRecord(record: Pokemon): void {
     pokemonDB.set(record);
   }
 }
+
+// the adapter for PokemonDB
 loader("./data.json", new PokemonDBAdapter());
 
-unsubscribe();
+unsubscribeAfter();
+unsubscribeBefore();
 // it will not console log
 pokemonDB.set({
   id: "Bulbasaur",

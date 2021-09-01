@@ -64,6 +64,7 @@ function createDatabase<T extends BaseRecord>() {
     private afterAddListeners = createObserver<AfterSetEvent<T>>();
 
     private constructor() {}
+    // return a function to unsubscribe
     onBeforeAdd(listener: Listener<BeforeSetEvent<T>>): () => void {
       return this.beforeAddListeners.subscribe(listener);
     }
