@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    /* For more information visit : https://www.staging-typescript.org/tsconfig */
+
+    "target": "es3",
+    "watch": true,
+    "lib": ["DOM", "ES2017"]
+  }
+}
