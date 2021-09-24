@@ -130,7 +130,7 @@ const unsubscribe = pokemonDB.onAfterAdd(({ value }) => {
 unsubscribe();
 // it will not console log
 pokemonDB.set({
-  id: "Bulbasaur",
+  id: 'Bulbasaur',
   attack: 50,
   defense: 10,
 });
