@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Frontend\" && exit 1",
+    "webpack": "webpack ./s3_main.js --no-devtool --mode development --target web -o output"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^5.53.0"
+    "webpack": "^5.53.0",
+    "webpack-cli": "^4.8.0"
   }
 }

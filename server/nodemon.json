@@ -2,7 +2,5 @@
   "verbose": true,
   "restartable": "rs",
   "ignore": ["node_modules/**/node_modules", "**/node_modules"],
-  "ext": "js,ts,ejs",
-  "exec": "npm run start",
-  "watch": [".", "./frontend/"]
+  "ext": "js,json,ejs"
 }
