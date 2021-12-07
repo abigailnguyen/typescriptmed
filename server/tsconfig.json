@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    /* For more information visit : https://www.staging-typescript.org/tsconfig */
+    "target": "ES6",
+    "watch": true,
+    "lib": ["DOM", "ES2017"],
+    "rootDir": "." /* specify this option to watch files in subfolder */,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    // "outDir": ""
+    "baseUrl": ".",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "sourceMap": true, // display the original code from the generated JS file,
+  },
+  "include": [
+    "**/*"
+  ],
+  "exclude": [
+    "**/node_modules"
+  ]
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Guitar Inventory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <script type="text/javascript" src="/static/output/main.js"></script>
+    <script type="text/javascript" src="/static/main.js"></script>
+  </head>
+  <body>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <div id="designMode" hidden="true">Design mode on</div>
+    <div class="container">
+      <h1 class="header">Guitar Inventory</h1>
+      <button class="btn" onclick="healthcheck()">Click Me!</button>
+      <button class="btn" onclick="toggleDesignMode()">
+        Toggle Design Mode
+      </button>
+
+      <div
+        id="g_id_onload"
+        data-client_id="824423890390-oc51a46u2pksk47qv8cb31c8tvp2o36a.apps.googleusercontent.com"
+        data-login_uri="http://localhost:30000/login"
+        data-auto_prompt="false"
+        data-callback="handleResponseCallback"
+      ></div>
+      <div
+        class="g_id_signin"
+        data-type="standard"
+        data-size="large"
+        data-theme="outline"
+        data-text="sign_in_with"
+        data-shape="rectangular"
+        data-logo_alignment="left"
+      ></div>
+
+      <button class="btn" onclick="listAlbums()">List Album</button>
+      <a class="btn" href="/guitars"
+        ><i class="material-icons right">arrow_forward</i>Get started!</a
+      >
+    </div>
+  </body>
+</html>
